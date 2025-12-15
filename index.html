@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Ray Marching Shadows</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="ghosticon.png">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <canvas id="canvas" class="subcanv" width="1024" height="512"></canvas>
+        <canvas id="overlay" class="subcanv" width="1024" height="512"></canvas>
+    </div>
+
+    <div class="controls">
+        <div class="control-group" style="border-bottom: 1px solid #999; padding-bottom: 10px; margin-bottom: 10px;">
+            <input type="text" id="textInput" value="SHADOWS" placeholder="Type text here..." />
+            <button onclick="updateTextString()">Set Text</button>
+            <br>
+
+            <input type="checkbox" id="eraserMode" />
+            <label for="eraserMode" style="color:red; font-weight:bold; margin-right: 15px;">Eraser Tool</label>
+
+            <input type="checkbox" id="moveTextMode" />
+            <label for="moveTextMode" style="color:blue; font-weight:bold;">Move Text Tool</label>
+            <br>
+            <!-- CHANGED: Updated Tip -->
+            <small><i>(Undo: Ctrl+Z | Redo: Ctrl+Shift+Z)</i></small>
+        </div>
+
+        <div class="control-group">
+            <input type="checkbox" id="blur" />
+            <label for="blur">Blur shadow map</label>
+        </div>
+
+        <div class="control-group">
+            <input type="checkbox" id="jitterStart" checked />
+            <label for="jitterStart">Jitter ray offset</label>
+        </div>
+
+        <div class="control-group">
+            <input type="checkbox" id="surfaceCheck" checked />
+            <label for="surfaceCheck">Near-surface checks</label>
+        </div>
+
+        <div class="control-group">
+            <input type="checkbox" id="useCone" checked />
+            <label for="useCone">Soften by area</label>
+        </div>
+
+        <div class="control-group">
+            <input type="checkbox" id="jitterStep" />
+            <label for="jitterStep">Jitter ray steps</label>
+        </div>
+
+        <p id="frameRate"></p>
+        <p>Distance map: <span id="stats">Calculating...</span></p>
+        <button onclick="resetPoints()">Clear Canvas</button>
+    </div>
+
+</body>
+
+</html>

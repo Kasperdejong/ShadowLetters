@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+#container {
+    position: relative;
+    border: 1px solid #000;
+    /* CHANGED: Width matched to HTML */
+    width: 1024px;
+    height: 512px;
+    background-color: #fff;
+    cursor: crosshair;
+    margin-bottom: 15px;
+}
+
+.subcanv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#overlay {
+    pointer-events: none;
+}
+
+.controls {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    /* Max-width matched to canvas */
+    max-width: 1024px;
+}
+
+.control-group {
+    margin-bottom: 5px;
+}
+
+label {
+    user-select: none;
+    cursor: pointer;
+}
