@@ -7,7 +7,6 @@ body {
 #container {
     position: relative;
     border: 1px solid #000;
-    /* CHANGED: Width matched to HTML */
     width: 1024px;
     height: 512px;
     background-color: #fff;
@@ -31,7 +30,6 @@ body {
     background: #fff;
     padding: 15px;
     border: 1px solid #ccc;
-    /* Max-width matched to canvas */
     max-width: 1024px;
 }
 

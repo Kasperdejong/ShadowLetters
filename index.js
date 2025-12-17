@@ -36,15 +36,11 @@ let textState = {
     size: 100
 };
 
-// <--- CHANGED: Undo & Redo History Setup
 let undoStack = [];
 let redoStack = [];
 const MAX_HISTORY = 20;
 
 function saveHistory() {
-    // We save the pixel map AND the text variables.
-    // If we don't save text variables, undoing a move will visually work
-    // but the next time you click, the text will snap back to the wrong place.
     let snapshot = {
         map: solidMap.slice(),
         text: Object.assign({}, textState) // Clone the text object
@@ -511,10 +507,9 @@ outer.onmousedown = function(e) {
         textState.x = x - (ctx.measureText(textState.str).width / 2);
         textState.y = y - (textState.size / 2);
         renderTextToMap();
-        // NOTE: renderTextToMap calls saveHistory internally, so we might 
+        // NOTE: renderTextToMap calls saveHistory internally, so i might 
         // get a double save here. But for simplicity, it ensures safety.
-        // We actually want to avoid calling saveHistory TWICE.
-        // I will remove the saveHistory call INSIDE renderTextToMap for future stability
+        // I actually want to avoid calling saveHistory TWICE.
         // but for now, the explicit calls here are safer.
     } else {
         saveHistory();
